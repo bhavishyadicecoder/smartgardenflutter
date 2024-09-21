@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:smart_garden/utlis/routes.dart';
 import 'package:smart_garden/utlis/theme.dart';
 import 'package:smart_garden/widgets/authWidgets/auth_input.dart';
 import 'package:smart_garden/widgets/custom_button.dart';
@@ -55,7 +56,9 @@ class _PersonalizeExperienceState extends State<PersonalizeExperience> {
                 ),
                 Spacer(),
                 CustomButton(
-                  onPressedButton: () {},
+                  onPressedButton: () {
+                    Navigator.pushNamed(context, MyRoutes.homeRoute);
+                  },
                   text: "Continue",
                   textStyle: TextStyle(
                     fontFamily: "ProximaNovaAlt",

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_garden/pages/home.dart';
 import 'package:smart_garden/pages/login.dart';
 import 'package:smart_garden/pages/personalize_experience.dart';
 import 'package:smart_garden/pages/register.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         MyRoutes.registerRoute: (context) => const Register(),
         MyRoutes.welcomeRoute: (context) => const Welcome(),
         MyRoutes.personalExperience: (context) => const PersonalizeExperience(),
+        MyRoutes.homeRoute: (context) => const Home(),
       },
     );
   }
