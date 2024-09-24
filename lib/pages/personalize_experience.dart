@@ -17,6 +17,12 @@ class _PersonalizeExperienceState extends State<PersonalizeExperience> {
   final TextEditingController emailController = TextEditingController();
   String name = '';
 
+  Future<void> navigateToHome() async {
+    // Perform login logic
+
+    Navigator.pushReplacementNamed(context, MyRoutes.rootPage);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +63,10 @@ class _PersonalizeExperienceState extends State<PersonalizeExperience> {
                 Spacer(),
                 CustomButton(
                   onPressedButton: () {
-                    Navigator.pushNamed(context, MyRoutes.homeRoute);
+                    // Navigator.pushNamed(context, MyRoutes.rootPage);
+                    navigateToHome();
+
+                    // Navigator.pushReplacementNamed(context, MyRoutes.rootPage);
                   },
                   text: "Continue",
                   textStyle: TextStyle(
