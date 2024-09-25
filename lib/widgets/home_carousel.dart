@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smart_garden/pages/home.dart';
 import 'package:smart_garden/utlis/theme.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -40,7 +39,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
     return Column(
       children: [
         SizedBox(
-          height: 200, // Set the fixed height for the carousel
+          height: 190, // Set the fixed height for the carousel
           child: PageView.builder(
             itemCount: widget.imagesList.length,
             controller: _pageController,
@@ -55,7 +54,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
                         widget.imagesList[index],
                         fit: BoxFit.cover,
                         width: MediaQuery.of(context).size.width,
-                        height: 200, // Set same height for each image
+                        height: 190, // Set same height for each image
                       ),
                     ],
                   ),
@@ -64,7 +63,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
             },
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 0),
         DotsIndicator(
           dotsCount: widget.imagesList.length,
           position: currentPage,
@@ -89,7 +88,7 @@ class DotsIndicator extends StatelessWidget {
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 4.0),
           width: 16.0,
-          height: 8.0,
+          height: 6.0,
           decoration: BoxDecoration(
               shape: BoxShape.rectangle,
               color: index == position
@@ -98,6 +97,6 @@ class DotsIndicator extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(4))),
         );
       }),
-    ).pOnly(top: 55);
+    ).pOnly(top: 45);
   }
 }
