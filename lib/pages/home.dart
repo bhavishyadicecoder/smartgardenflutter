@@ -18,6 +18,24 @@ class Home extends StatelessWidget {
     "assets/images/banner_image3.jpeg", // Add your image paths here
   ];
 
+  final _rowContainerList = [
+    {
+      'icon': 'assets/icons/humidity_icon.svg',
+      'name': 'Humidity',
+      'val': '74%'
+    },
+    {
+      'icon': 'assets/icons/temp_icon.svg',
+      'name': 'Temperature',
+      'val': '23°c',
+    },
+    {
+      'icon': 'assets/icons/water_level_icon.svg',
+      'name': 'Water Level',
+      'val': '85%'
+    },
+  ];
+
   final _conectivityList = [
     {
       'icon': 'assets/icons/contectivity_icon.svg',
@@ -165,7 +183,9 @@ class Home extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              TemperatureRowList().pSymmetric(h: 20),
+              RowCard(
+                rowContainerList: _rowContainerList,
+              ).pSymmetric(h: 20),
               const SizedBox(
                 height: 10,
               ),
@@ -195,57 +215,6 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class TemperatureRowList extends StatelessWidget {
-  final List<Map<String, dynamic>> _rowContainerList = [
-    {
-      'icon': 'assets/icons/humidity_icon.svg',
-      'name': 'Humidity',
-      'val': '74%'
-    },
-    {
-      'icon': 'assets/icons/temp_icon.svg',
-      'name': 'Temperature',
-      'val': '23°c',
-    },
-    {
-      'icon': 'assets/icons/water_level_icon.svg',
-      'name': 'Water Level',
-      'val': '85%'
-    },
-  ];
-
-  TemperatureRowList({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return RowCard(
-      rowContainerList: _rowContainerList,
-    );
-  }
-}
-
-class ConectivityRowList extends StatelessWidget {
-  final List<Map<String, dynamic>> _multiItemsCardList = [
-    {
-      'label': 'Nutrient Level',
-      'icon': 'assets/icons/contectivity_icon.svg',
-      'name': 'Humidity',
-      'val': '74%'
-    },
-    {
-      'icon': 'assets/icons/temp_icon.svg',
-      'name': 'Temperature',
-      'val': '23°c',
-    },
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return RowMultiCard(
-      rowContainerList: _multiItemsCardList,
     );
   }
 }
