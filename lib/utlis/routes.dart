@@ -8,4 +8,5 @@ class MyRoutes {
   static String dashboardRoute = '/Dashboard';
   static String bottomNavigation = '/BottomNavigation';
   static String rootPage = '/RootPage';
+  static String gardenDetailRoute = '/GardenDetails';
 }

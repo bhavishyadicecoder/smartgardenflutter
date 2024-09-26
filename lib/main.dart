@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_garden/pages/garden_details.dart';
 import 'package:smart_garden/pages/login.dart';
 import 'package:smart_garden/pages/personalize_experience.dart';
 import 'package:smart_garden/pages/register.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: MyRoutes.welcomeRoute,
+      initialRoute: MyRoutes.rootPage,
       debugShowCheckedModeBanner: false,
       theme: MyTheme.lightTheme(context),
       routes: {
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
         MyRoutes.registerRoute: (context) => const Register(),
         MyRoutes.welcomeRoute: (context) => const Welcome(),
         MyRoutes.personalExperience: (context) => const PersonalizeExperience(),
-        MyRoutes.rootPage: (context) => const RootPage()
+        MyRoutes.rootPage: (context) => const RootPage(),
+        MyRoutes.gardenDetailRoute: (context) => const GardenDetails()
       },
     );
   }
