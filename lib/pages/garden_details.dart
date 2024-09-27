@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:smart_garden/pages/home.dart';
+
 import 'package:smart_garden/utlis/theme.dart';
-import 'package:smart_garden/widgets/custom_button.dart';
+
 import 'package:velocity_x/velocity_x.dart';
 
 class GardenDetails extends StatelessWidget {
@@ -44,34 +45,36 @@ class GardenDetails extends StatelessWidget {
                           SvgPicture.asset(
                             'assets/icons/chevron_left_icon.svg',
                           ),
-                          const SizedBox(
-                            width: 8,
+                          SizedBox(
+                            width: 8.w,
                           ),
                           "Go back"
                               .text
                               .fontFamily(MyTheme.proximaNovaAltfontFamily)
                               .fontWeight(FontWeight.w700)
-                              .size(18)
+                              .size(18.sp)
                               .color(MyTheme.green_20)
                               .make(),
                         ],
                       ),
                     ).pSymmetric(v: 8),
                     Container(
-                      width: 40,
-                      height: 40,
+                      width: 40.w,
+                      height: 40.w,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.w),
                         color: Colors.white,
                       ),
                       child: InkWell(
                         onTap: () {},
                         child: SizedBox(
-                          width: 24, // Explicitly set size
-                          height: 24, // Explicitly set size
+                          width: 24.w, // Explicitly set size
+                          height: 24.w,
+                          // Explicitly set size
                           child: SvgPicture.asset(
                             "assets/icons/list_dot_icon.svg",
-                            fit: BoxFit.none, // Avoid scaling the SVG
+                            fit: BoxFit.contain,
+                            // Avoid scaling the SVG
                           ),
                         ),
                       ),
@@ -88,13 +91,13 @@ class GardenDetails extends StatelessWidget {
                   .text
                   .fontFamily(MyTheme.noeDispalyfontFamily)
                   .fontWeight(FontWeight.w500)
-                  .size(32)
+                  .size(32.sp)
                   .make(),
               "ID: 1344295024"
                   .text
                   .fontFamily(MyTheme.proximaNovaAltfontFamily)
                   .fontWeight(FontWeight.w400)
-                  .size(14)
+                  .size(14.sp)
                   .color(Color(0xFF111111).withOpacity(0.50))
                   .make(),
               // CustomTabBar(),

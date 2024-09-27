@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smart_garden/utlis/theme.dart';
 import 'package:velocity_x/velocity_x.dart'; // Make sure you import flutter_svg package
@@ -38,7 +39,7 @@ class CustomBottomNavBar extends StatelessWidget {
                   selectedIndex == 0 ? MyTheme.green_20 : MyTheme.grey_50,
                   BlendMode.srcIn),
               // Handle color change
-              width: 32, // Handle size change
+              width: 32.w, // Handle size change
             ),
             label: selectedIndex == 0 ? 'Home' : '',
             index: 0,
@@ -49,7 +50,7 @@ class CustomBottomNavBar extends StatelessWidget {
               colorFilter: ColorFilter.mode(
                   selectedIndex == 1 ? MyTheme.green_20 : MyTheme.grey_50,
                   BlendMode.srcIn),
-              width: 32,
+              width: 32.w,
             ),
             label: selectedIndex == 1 ? 'Dashboard' : '',
             index: 1,
@@ -60,7 +61,7 @@ class CustomBottomNavBar extends StatelessWidget {
               colorFilter: ColorFilter.mode(
                   selectedIndex == 2 ? MyTheme.green_20 : MyTheme.grey_50,
                   BlendMode.srcIn),
-              width: 32,
+              width: 32.w,
             ),
             label: selectedIndex == 2 ? 'Profile' : '',
             index: 2,
@@ -92,7 +93,7 @@ class CustomBottomNavBar extends StatelessWidget {
                       ? MyTheme.green_20
                       : MyTheme.grey_50, // Highlight selected label
                   fontWeight: FontWeight.w700,
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   fontFamily: MyTheme.proximaNovaAltfontFamily),
             ),
           ],

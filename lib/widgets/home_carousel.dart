@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_garden/utlis/theme.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -39,7 +40,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
     return Column(
       children: [
         SizedBox(
-          height: 190, // Set the fixed height for the carousel
+          height: 190.w, // Set the fixed height for the carousel
           child: PageView.builder(
             itemCount: widget.imagesList.length,
             controller: _pageController,
@@ -47,14 +48,14 @@ class _HomeCarouselState extends State<HomeCarousel> {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(20.w),
                   child: Stack(
                     children: [
                       Image.asset(
                         widget.imagesList[index],
                         fit: BoxFit.cover,
                         width: MediaQuery.of(context).size.width,
-                        height: 190, // Set same height for each image
+                        height: 190.w, // Set same height for each image
                       ),
                     ],
                   ),
@@ -63,7 +64,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
             },
           ),
         ),
-        const SizedBox(height: 0),
+        SizedBox(height: 10.w),
         DotsIndicator(
           dotsCount: widget.imagesList.length,
           position: currentPage,
@@ -87,16 +88,16 @@ class DotsIndicator extends StatelessWidget {
       children: List.generate(dotsCount, (index) {
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 4.0),
-          width: 16.0,
-          height: 6.0,
+          width: 16.0.w,
+          height: 6.0.w,
           decoration: BoxDecoration(
               shape: BoxShape.rectangle,
               color: index == position
                   ? MyTheme.green_20
                   : MyTheme.green_20.withOpacity(0.2),
-              borderRadius: const BorderRadius.all(Radius.circular(4))),
+              borderRadius: BorderRadius.all(Radius.circular(4.w))),
         );
       }),
-    ).pOnly(top: 45);
+    ).pOnly(top: 45.w);
   }
 }

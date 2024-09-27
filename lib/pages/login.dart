@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_garden/utlis/routes.dart';
 import 'package:smart_garden/utlis/theme.dart';
 import 'package:smart_garden/widgets/authWidgets/auth_input.dart';
@@ -54,14 +55,14 @@ class _LoginState extends State<Login> {
                         .fontFamily("NoeDisplay")
                         .fontWeight(FontWeight.w500)
                         .color(Colors.white)
-                        .size(32)
+                        .size(32.sp)
                         .make(),
                     const SizedBox(height: 10),
                     "Let’s get back to growing your Aepod plants, shall we?"
                         .text
                         .fontFamily('ProximaNovaAlt')
                         .fontWeight(FontWeight.w400)
-                        .size(18)
+                        .size(18.sp)
                         .color(Colors.white)
                         .make(),
                     const SizedBox(height: 30),
@@ -85,8 +86,8 @@ class _LoginState extends State<Login> {
                           setState(() {});
                         },
                         child: SvgPicture.asset(
-                          height: 24,
-                          width: 24,
+                          height: 24.h,
+                          width: 24.w,
                           colorFilter: const ColorFilter.mode(
                               Colors.white, BlendMode.srcIn),
                           isPasswordVisible
@@ -104,14 +105,14 @@ class _LoginState extends State<Login> {
                         .fontFamily("ProximaNovaAlt")
                         .fontWeight(FontWeight.w700)
                         .color(Colors.white)
-                        .size(18)
+                        .size(18.sp)
                         .make(),
                     const SizedBox(height: 36),
                     "Or Login using social media"
                         .text
                         .fontFamily("ProximaNovaAlt")
                         .fontWeight(FontWeight.w400)
-                        .size(18)
+                        .size(18.sp)
                         .color(Colors.white)
                         .make(),
                     const SizedBox(height: 22),
@@ -123,7 +124,7 @@ class _LoginState extends State<Login> {
                       text: "Login",
                       textStyle: TextStyle(
                         fontFamily: "ProximaNovaAlt",
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.w700,
                         color: MyTheme.green_20,
                       ),
@@ -143,13 +144,13 @@ class _LoginState extends State<Login> {
                               Navigator.pushNamed(
                                   context, MyRoutes.registerRoute);
                             },
-                            child: const Text(
+                            child: Text(
                               "New here? Register",
                               style: TextStyle(
                                 fontFamily: "ProximaNovaAlt",
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
-                                fontSize: 18,
+                                fontSize: 18.sp,
                               ),
                             ) // .make() converts the text to a widget
                             ),

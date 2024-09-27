@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smart_garden/utlis/theme.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RowMultiCard extends StatelessWidget {
   final List<Map<String, dynamic>> rowContainerList;
@@ -16,7 +17,7 @@ class RowMultiCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: rowContainerList.map((item) {
         return Container(
-          width: 228,
+          width: 210.w,
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(12)),
           child: Column(
@@ -25,7 +26,7 @@ class RowMultiCard extends StatelessWidget {
               Text(
                 item['label'],
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   fontFamily: MyTheme.proximaNovaAltfontFamily,
                 ),
               ),
@@ -36,8 +37,8 @@ class RowMultiCard extends StatelessWidget {
                 children: [
                   SvgPicture.asset(
                     item['firstIcon'], // Loading the SVG icon
-                    height: 24,
-                    width: 24,
+                    height: 24.w,
+                    width: 24.w,
                   ),
                   const SizedBox(
                     width: 10,
@@ -45,30 +46,30 @@ class RowMultiCard extends StatelessWidget {
                   Text(
                     item['gramName'],
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       fontFamily: MyTheme.proximaNovaAltfontFamily,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 10,
+              SizedBox(
+                height: 10.h,
               ),
               Row(
                 children: [
                   SvgPicture.asset(
                     item['secondIcon'], // Loading the SVG icon
-                    height: 24,
-                    width: 24,
+                    height: 24.w,
+                    width: 24.w,
                   ),
-                  const SizedBox(
-                    width: 10,
+                  SizedBox(
+                    width: 7.w,
                   ),
                   Text(
                     item['refillName'],
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.w,
                       fontFamily: MyTheme.proximaNovaAltfontFamily,
                       fontWeight: FontWeight.w700,
                     ),
@@ -76,7 +77,12 @@ class RowMultiCard extends StatelessWidget {
                 ],
               ),
             ],
-          ).pOnly(left: 10, top: 13, bottom: 13, right: 6),
+          ).pOnly(
+            left: 4.w,
+            top: 13.w,
+            bottom: 13.w,
+            // right: 8.w,
+          ),
         );
       }).toList(),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smart_garden/utlis/routes.dart';
 import 'package:smart_garden/utlis/theme.dart';
@@ -84,7 +85,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: MyTheme.lightGrenish,
       body: SingleChildScrollView(
-        padding: const EdgeInsets.only(bottom: 20),
+        padding: EdgeInsets.only(bottom: 20.w),
         child: SafeArea(
           child: Column(
             children: [
@@ -95,42 +96,44 @@ class _HomeState extends State<Home> {
                       .text
                       .fontFamily(MyTheme.noeDispalyfontFamily)
                       .fontWeight(FontWeight.w500)
-                      .size(Vx.dp32)
+                      .size(32.sp)
                       .make(),
                   Container(
-                    width: 40,
-                    height: 40,
+                    width: 40.w,
+                    height: 40.w,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.w),
                       color: const Color(0xFF0C9359).withOpacity(0.1),
                     ),
                     child: SizedBox(
-                      width: 24, // Explicitly set size
-                      height: 24, // Explicitly set size
+                      width: 24.w, // Explicitly set size
+                      height: 24.w, // Explicitly set size
                       child: SvgPicture.asset(
                         "assets/icons/setting_icon.svg",
-                        fit: BoxFit.none, // Avoid scaling the SVG
-                      ),
+                        width: 24.w, // Explicitly set size
+                        height: 24.w,
+                        fit: BoxFit.contain, // Avoid scaling the SVG
+                      ).p8(),
                     ),
                   ),
                 ],
-              ).pOnly(top: 12, right: 20, left: 20),
-              const SizedBox(
-                height: 20,
+              ).pOnly(top: 12.w, right: 20.w, left: 20.w),
+              SizedBox(
+                height: 20.w,
               ),
               // Stack to overlay Container halfway on the Carousel
               PositionCard(
                 imagesList: imagesList,
               ),
 
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: 20.w,
               ),
               RowCard(
                 rowContainerList: _rowContainerList,
-              ).pSymmetric(h: 20),
-              const SizedBox(
-                height: 10,
+              ).pSymmetric(h: 20.w),
+              SizedBox(
+                height: 10.w,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -140,9 +143,9 @@ class _HomeState extends State<Home> {
                     rowContainerList: _nutrientLevelList,
                   )
                 ],
-              ).pSymmetric(h: 20),
-              const SizedBox(
-                height: 10,
+              ).pSymmetric(h: 20.w),
+              SizedBox(
+                height: 10.w,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -156,17 +159,24 @@ class _HomeState extends State<Home> {
                         enableDrag: true,
                         context: context,
                         showDragHandle: true,
+                        constraints: const BoxConstraints(
+                          maxWidth: double.infinity,
+                        ),
                         isScrollControlled: true,
                         backgroundColor: Colors.white,
                         builder: (BuildContext context) {
                           return const LightStatusBottomSheet();
                         },
+                        shape: const RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(20)),
+                        ),
                       );
                     },
                     child: RowCard(rowContainerList: _lighttStatusList),
                   ),
                 ],
-              ).pSymmetric(h: 20),
+              ).pSymmetric(h: 20.w),
               // Spacing after the carousel & container
             ],
           ),
@@ -189,9 +199,9 @@ class PositionCard extends StatelessWidget {
 
         // Positioned container
         Positioned(
-          left: 20,
-          right: 20,
-          bottom: 28, // Adjust this value to position the container halfway
+          left: 20.w,
+          right: 20.w,
+          bottom: 28.w, // Adjust this value to position the container halfway
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 35),
             // width: 304.0,
@@ -214,7 +224,7 @@ class PositionCard extends StatelessWidget {
                             .text
                             .fontFamily(MyTheme.proximaNovaAltfontFamily)
                             .fontWeight(FontWeight.w600)
-                            .size(21)
+                            .size(21.w)
                             .make(),
                         const SizedBox(
                           height: 4,
@@ -223,26 +233,26 @@ class PositionCard extends StatelessWidget {
                             .text
                             .fontFamily(MyTheme.proximaNovaAltfontFamily)
                             .fontWeight(FontWeight.w400)
-                            .size(14)
+                            .size(14.sp)
                             .color(MyTheme.grey_50)
                             .make(),
                       ],
                     ),
                     Container(
-                      width: 32,
-                      height: 32,
+                      width: 32.w,
+                      height: 32.w,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.w),
                         color: const Color(0xFF0C9359).withOpacity(0.1),
                       ),
                       child: SizedBox(
-                        width: 24, // Explicitly set size
-                        height: 24, // Explicitly set size
+                        width: 24.w, // Explicitly set size
+                        height: 24.w, // Explicitly set size
                         child: SvgPicture.asset(
                           "assets/icons/chevron_right.svg",
-                          fit: BoxFit.none, // Avoid scaling the SVG
+                          fit: BoxFit.contain, // Avoid scaling the SVG
                         ),
-                      ),
+                      ).p8(),
                     ),
                   ],
                 ).pSymmetric(v: 10, h: 18),
@@ -270,31 +280,25 @@ class _LightStatusBottomSheetState extends State<LightStatusBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 20, bottom: 40, left: 30, right: 30),
+      width: double.infinity,
+      padding:
+          EdgeInsets.only(top: 20.w, bottom: 30.w, left: 20.w, right: 20.w),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            height: 8.0,
-            width: 48.0,
-            decoration: BoxDecoration(
-              color: MyTheme.green_50.withOpacity(0.25),
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-          const SizedBox(height: 30),
+          // const SizedBox(height: 30),
           "Light Status"
               .text
               .fontFamily(MyTheme.proximaNovaAltfontFamily)
               .fontWeight(FontWeight.w600)
-              .size(21)
+              .size(21.sp)
               .make(),
-          const SizedBox(height: 20),
+          SizedBox(height: 15.w),
           const Divider(
             // height: 60,
             thickness: 0.3,
           ),
-          const SizedBox(height: 15),
+          SizedBox(height: 15.w),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -302,33 +306,38 @@ class _LightStatusBottomSheetState extends State<LightStatusBottomSheet> {
                   .text
                   .fontFamily(MyTheme.proximaNovaAltfontFamily)
                   .fontWeight(FontWeight.w600)
-                  .size(21)
+                  .size(21.sp)
                   .color(MyTheme.green_50)
                   .make(),
-              FlutterSwitch(
-                activeColor: MyTheme.green_20,
-                activeToggleColor: Colors.white,
-                height: 32.0,
-                valueFontSize: 14.0,
-                value: status,
-                borderRadius: 30.0,
-                activeText: 'ON',
-                inactiveText: 'OFF',
-                showOnOff: true,
-                onToggle: (val) {
-                  setState(() {
-                    status = val;
-                  });
-                },
+              Container(
+                child: FlutterSwitch(
+                  activeColor: MyTheme.green_20,
+                  activeToggleColor: Colors.white,
+                  height: 32.w,
+                  width: 75.w,
+                  toggleSize: 25.w,
+                  valueFontSize: 14.sp,
+                  value: status,
+                  borderRadius: 25.w,
+                  activeText: 'ON',
+                  inactiveText: 'OFF',
+                  showOnOff: true,
+                  padding: 4.w,
+                  onToggle: (val) {
+                    setState(() {
+                      status = val;
+                    });
+                  },
+                ),
               ),
             ],
           ),
-          const SizedBox(height: 15),
+          SizedBox(height: 15.w),
           const Divider(
             // height: 60,
             thickness: 0.3,
           ),
-          const SizedBox(height: 15),
+          SizedBox(height: 15.w),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -336,7 +345,7 @@ class _LightStatusBottomSheetState extends State<LightStatusBottomSheet> {
                   .text
                   .fontFamily(MyTheme.proximaNovaAltfontFamily)
                   .fontWeight(FontWeight.w600)
-                  .size(21)
+                  .size(21.sp)
                   .color(MyTheme.green_50)
                   .make(),
               Row(
@@ -346,21 +355,25 @@ class _LightStatusBottomSheetState extends State<LightStatusBottomSheet> {
                       .text
                       .fontFamily(MyTheme.proximaNovaAltfontFamily)
                       .fontWeight(FontWeight.w400)
-                      .size(14)
+                      .size(14.sp)
                       .color(MyTheme.green_50.withOpacity(0.75))
                       .make(),
                   const SizedBox(width: 2),
-                  SvgPicture.asset('assets/icons/chevron_right.svg')
+                  SvgPicture.asset(
+                    'assets/icons/chevron_right.svg',
+                    height: 24.w,
+                    width: 24.w,
+                  )
                 ],
               ),
             ],
           ),
-          const SizedBox(height: 15),
+          SizedBox(height: 15.w),
           const Divider(
             // height: 60,
             thickness: 0.3,
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20.w),
           InkWell(
             onTap: () {
               Navigator.pop(context);
@@ -369,11 +382,11 @@ class _LightStatusBottomSheetState extends State<LightStatusBottomSheet> {
                 .text
                 .fontFamily(MyTheme.proximaNovaAltfontFamily)
                 .fontWeight(FontWeight.w700)
-                .size(18)
+                .size(18.sp)
                 .color(MyTheme.green_20)
                 .make(),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20.w),
         ],
       ),
     );

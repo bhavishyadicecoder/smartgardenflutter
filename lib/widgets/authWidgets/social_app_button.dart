@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -27,7 +28,7 @@ class SocialAppButton extends StatelessWidget {
               color: Colors.white,
               width: 2,
             ),
-            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 29),
+            padding: EdgeInsets.symmetric(vertical: 14.w, horizontal: 24.w),
           ),
           icon: SvgPicture.asset(
               height: 24,
@@ -40,7 +41,7 @@ class SocialAppButton extends StatelessWidget {
               .fontFamily('ProximaNovaAlt')
               .fontWeight(FontWeight.w700)
               .color(Colors.white)
-              .size(18)
+              .size(18.sp)
               .make(), // Button label
         ),
         OutlinedButton.icon(
@@ -53,11 +54,11 @@ class SocialAppButton extends StatelessWidget {
               color: Colors.white,
               width: 2,
             ),
-            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 29),
+            padding: EdgeInsets.symmetric(vertical: 14.w, horizontal: 24.w),
           ),
           icon: SvgPicture.asset(
-              height: 24,
-              width: 24,
+              height: 24.h,
+              width: 24.w,
               colorFilter:
                   const ColorFilter.mode(Colors.white, BlendMode.srcIn),
               'assets/icons/google_icon.svg'), // Prefix icon
@@ -66,7 +67,7 @@ class SocialAppButton extends StatelessWidget {
               .fontFamily('ProximaNovaAlt')
               .fontWeight(FontWeight.w700)
               .color(Colors.white)
-              .size(18)
+              .size(18.sp)
               .make(), // Button label
         )
       ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AuthInput extends StatelessWidget {
   final String hintText;
@@ -30,19 +31,19 @@ class AuthInput extends StatelessWidget {
           obscureText: isObscure,
           keyboardType: keyboardType, // Defines the keyboard type
           onChanged: onChanged,
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.white, // Text color is white
-            fontSize: 18,
+            fontSize: 18.sp,
             fontFamily: "ProximaNovaAlt",
             fontWeight: FontWeight.w500,
           ),
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: const TextStyle(
+            hintStyle: TextStyle(
               color: Colors.white,
               fontFamily: "ProximaNovaAlt",
               fontWeight: FontWeight.w400,
-              fontSize: 18,
+              fontSize: 18.sp,
             ),
             contentPadding: const EdgeInsets.symmetric(
               vertical: 16,

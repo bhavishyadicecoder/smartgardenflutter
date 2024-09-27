@@ -34,6 +34,12 @@
             "deviceId": "82FE9244-622C-4FA8-B758-5CEAEC94497B"
         },
         {
+            "name": "iPad Pro",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "2D812092-518A-4B5D-9E92-0719B07420EB"
+        },
+        {
             "name": "Android",
             "request": "launch",
             "type": "dart",
@@ -47,6 +53,7 @@
                 "Android",
                 "iPhone14",
                 "iPhoneSE",
+                "iPad Pro",
             ]
         }
     ]

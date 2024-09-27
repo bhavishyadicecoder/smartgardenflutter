@@ -7,6 +7,7 @@ import 'package:smart_garden/pages/root_page.dart';
 import 'package:smart_garden/pages/welcome.dart';
 import 'package:smart_garden/utlis/routes.dart';
 import 'package:smart_garden/utlis/theme.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,17 +18,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: MyRoutes.rootPage,
-      debugShowCheckedModeBanner: false,
-      theme: MyTheme.lightTheme(context),
-      routes: {
-        MyRoutes.loginRoute: (context) => const Login(),
-        MyRoutes.registerRoute: (context) => const Register(),
-        MyRoutes.welcomeRoute: (context) => const Welcome(),
-        MyRoutes.personalExperience: (context) => const PersonalizeExperience(),
-        MyRoutes.rootPage: (context) => const RootPage(),
-        MyRoutes.gardenDetailRoute: (context) => const GardenDetails()
+    // Initialize ScreenUtil to manage responsiveness globally
+    return ScreenUtilInit(
+      designSize: const Size(360, 690), // Set the design size
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          initialRoute: MyRoutes.rootPage,
+          debugShowCheckedModeBanner: false,
+          theme: MyTheme.lightTheme(context),
+          routes: {
+            MyRoutes.loginRoute: (context) => const Login(),
+            MyRoutes.registerRoute: (context) => const Register(),
+            MyRoutes.welcomeRoute: (context) => const Welcome(),
+            MyRoutes.personalExperience: (context) =>
+                const PersonalizeExperience(),
+            MyRoutes.rootPage: (context) => const RootPage(),
+            MyRoutes.gardenDetailRoute: (context) => const GardenDetails(),
+          },
+        );
       },
     );
   }

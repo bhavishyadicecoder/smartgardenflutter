@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_garden/utlis/routes.dart';
 import 'package:smart_garden/utlis/theme.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -25,15 +26,15 @@ class Welcome extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const SizedBox(
-                      height: 70,
+                    SizedBox(
+                      height: 70.h,
                     ),
                     Image.asset(
                       "assets/images/logo.png",
                       height: 32,
                     ),
-                    const SizedBox(
-                      width: 10.0,
+                    SizedBox(
+                      width: 10.w,
                     ),
                     Image.asset(
                       "assets/images/AEPOD.png",
@@ -52,7 +53,7 @@ class Welcome extends StatelessWidget {
                           .text
                           .fontFamily('NoeDisplay')
                           .fontWeight(FontWeight.w500)
-                          .size(Vx.dp32)
+                          .size(32.w)
                           .color(Colors.white)
                           .make(),
                     ),

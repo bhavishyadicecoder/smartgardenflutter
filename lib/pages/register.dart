@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smart_garden/utlis/routes.dart';
 import 'package:smart_garden/utlis/theme.dart';
@@ -53,7 +54,7 @@ class _RegisterState extends State<Register> {
                         .text
                         .fontFamily('NoeDisplay')
                         .fontWeight(FontWeight.w500)
-                        .size(32)
+                        .size(32.sp)
                         .color(Colors.white)
                         .make(),
                     const SizedBox(height: 10),
@@ -61,7 +62,7 @@ class _RegisterState extends State<Register> {
                         .text
                         .fontFamily('ProximaNovaAlt')
                         .fontWeight(FontWeight.w400)
-                        .size(18)
+                        .size(18.sp)
                         .color(Colors.white)
                         .make(),
                     const SizedBox(height: 30),
@@ -92,8 +93,8 @@ class _RegisterState extends State<Register> {
                           setState(() {});
                         },
                         child: SvgPicture.asset(
-                          height: 24,
-                          width: 24,
+                          height: 24.w,
+                          width: 24.w,
                           colorFilter: const ColorFilter.mode(
                               Colors.white, BlendMode.srcIn),
                           isPasswordVisible
@@ -107,7 +108,7 @@ class _RegisterState extends State<Register> {
                         .text
                         .fontFamily("ProximaNovaAlt")
                         .fontWeight(FontWeight.w400)
-                        .size(18)
+                        .size(18.sp)
                         .color(Colors.white)
                         .make(),
                     const SizedBox(height: 22),
@@ -118,7 +119,7 @@ class _RegisterState extends State<Register> {
                       text: "Register",
                       textStyle: TextStyle(
                         fontFamily: "ProximaNovaAlt",
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.w700,
                         color: MyTheme.green_20,
                       ),
@@ -131,13 +132,13 @@ class _RegisterState extends State<Register> {
                           onTap: () {
                             Navigator.pushNamed(context, MyRoutes.loginRoute);
                           },
-                          child: const Text(
+                          child: Text(
                             "Already have an account? Login",
                             style: TextStyle(
                               fontFamily: "ProximaNovaAlt",
                               fontWeight: FontWeight.w700,
                               color: Colors.white,
-                              fontSize: 18,
+                              fontSize: 18.sp,
                             ),
                           ),
                         ),
